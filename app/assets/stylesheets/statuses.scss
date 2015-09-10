@@ -1,0 +1,28 @@
+// Place all the styles related to the Statuses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.status-card{
+	background-color: #f1f1f1;
+	margin: 10px 10px 0 0;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}
+
+.comments-total a{
+	font-size: 20px;
+}
+
+.top-comments{
+	margin-top: 20px;	
+}
+
+.top-comments-item{
+	padding: 10px;
+	background-color: #ccc;
+	margin: 10px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mywall</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="col-md-12 top-header">
+				<div class="col-md-3 logo">
+					<h1><%= link_to "My Wall", statuses_path %></h1>
+				</div>
+
+				<div class="col-md-9 ">
+					<% if user_signed_in? %>
+						<div class="pull-right">
+							 <ul class="nav nav-pills user-name">
+								 <li><p>Hello <%= current_user.name %></p></li>
+								 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+							 </ul>
+						</div>
+					<% else %>
+						<div class="pull-right">
+							 <ul class="nav nav-pills">
+							 	<li><%= link_to "Log in", new_user_session_path %></li>
+								<li><%= link_to "Register", new_user_registration_path %></li>
+							 </ul>
+						</div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-md-12 flash-messages">
+				<% flash.each do |type, message| %>
+					<p class="<%= type %>"><%= message %></p>
+				<% end %>
+			</div>
+		</header>
+
+		<%= yield %>
+	</div>
+</body>
+</html>

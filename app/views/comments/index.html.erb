@@ -1,0 +1,28 @@
+<div class="row">
+	<% if @new_comment.errors.any? %>
+	<div id="error_explanation">
+		  <h2><%= pluralize(@new_comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		  <ul>
+			  <% @new_comment.errors.full_messages.each do |message| %>
+			    <li><%= message %></li>
+			  <% end %>
+		  </ul>
+	</div>
+	<% end %>
+	<div class="col-md-12 margin-top-10">
+		<div class="newComment col-md-4">
+		<%= form_for [@status , @new_comment] do |f| %>
+		 	<%= f.text_field :body, class: "form-control", placeholder: "comment..." %>
+		 	<div class="form-group margin-top-10">
+		 		<%= f.submit class: "btn btn-primary", value: "Add comment"%>
+		 	</div>
+		<% end %>
+		</div>
+
+		<div class="comments col-md-8">
+			<% @status.comments.each do |comment| %>
+				<div class="well"><p><%= comment.body %> , <%= time_since(comment.created_at) %> </p></div>
+			<% end %>
+		</div>
+	</div>
+</div>

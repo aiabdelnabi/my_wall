@@ -1,0 +1,16 @@
+<div class="col-md-12">
+	<h2>
+	  <strong>Title:</strong>
+	  <%= @status.title %>
+	</h2>
+
+	<p>
+	  <strong>Content:</strong>
+	  <%= @status.content %>
+	</p>
+
+	<ul class="top-comments nav nav-pills">
+		<li><%= link_to 'Edit', edit_status_path(@status) %></li>
+		<li><%= link_to 'Back', statuses_path %></li>
+	</ul>
+</div>
